@@ -1,14 +1,15 @@
 <template>
   <div>
-    
+    <button @click.prevent="router.push('/')"></button>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: "home",
-  components: {
+  name: "Home",
+  methods: {
+
   }
 };
 </script>
