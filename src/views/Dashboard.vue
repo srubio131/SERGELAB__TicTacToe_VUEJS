@@ -1,10 +1,11 @@
 <template>
   <div class="dashboard">
     <div class="dashboard__row"
-         v-for="row in 3" :key="row">
+         v-for="row in rows" :key="row">
       <cell v-for="column in 3" :key="column"
             :coords="[row - 1, column - 1]"
-            value="O"
+            :maxCell="rows - 1"
+            :value="''"
             @click="onCellClick">
       </cell>
     </div>
@@ -19,10 +20,17 @@ export default {
   components: {
     Cell
   },
+  data() {
+    return {
+      rows: 3,
+      state: [['', '', ''],
+              ['', '', ''],
+              ['', '', '']]
+    }
+  },
   methods: {
     onCellClick(event) {
       console.log(event)
-      //alert('pincho', event)
     }
   }
 }
@@ -30,10 +38,9 @@ export default {
 
 <style lang="scss" scoped>
 .dashboard {
-  
-
+  display: flex;
   &__row {
-    display: flex;
+    //display: flex;
   }
 }
 </style>

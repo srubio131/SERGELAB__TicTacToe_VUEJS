@@ -3,13 +3,20 @@ export default {
   props: {
     coords: {
       type: Array,
-      default: () => [0, 0],
       required: true
     },
     value: {
       type: String,
-      default: '',
       required: true
+    },
+    maxCell: {
+      type: Number,
+      required: true
+    }
+  },
+  data() {
+    return {
+      classes: ''
     }
   },
   mounted() {
@@ -17,17 +24,28 @@ export default {
   },
   methods: {
     drawCell() {
-      console.log(this.coords)
-      // Pintar border segun coordenadas
-      // Pintar contenido
+      const x = this.coords[0]
+      const y = this.coords[1]
+      console.log(x,y)
+      if (x === 0) {
+        this.classes += ' border-left-none'
+      }
+      if (x === this.maxCell) {
+        this.classes += ' border-right-none'
+      }
+      if (y === 0) {
+        this.classes += ' border-top-none'
+      }
+      if (y === this.maxCell) {
+        this.classes += ' border-bottom-none'
+      }
     },
     onCellClick() {
       const data = {
         coords: this.coords,
         value: this.value
       }
-      console.log('coords dentro', data)
-      this.$emit('click', )
+      this.$emit('click', data)
     }
   }
 }

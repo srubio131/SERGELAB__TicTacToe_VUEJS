@@ -1,5 +1,5 @@
 <template>
-  <div class="cell" @click="onCellClick()">
+  <div class="cell" :class="classes" @click="onCellClick">
     {{ value }}
   </div>
 </template>
