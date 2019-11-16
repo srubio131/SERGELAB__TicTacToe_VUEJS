@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Dashboard from "../views/Dashboard.vue";
+import Game from "../views/Game.vue";
 
 Vue.use(VueRouter);
 
@@ -9,12 +9,12 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: Dashboard
+    component: Game
   },
   {
-    path: "/dashboard",
-    name: "dashboard",
-    component: Dashboard
+    path: "/game",
+    name: "game",
+    component: Game
   }
 ];
 
