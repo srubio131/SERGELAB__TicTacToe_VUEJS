@@ -1,0 +1,6 @@
+// Functions and Mixins
+
+// Borders
+@mixin border-none($border-side) {
+  border-#{$border-side}: none;
+}

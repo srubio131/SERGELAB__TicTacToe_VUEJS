@@ -9,6 +9,8 @@
   </div>
 </template>
 
+<!-- Global styles -->
+<style lang="scss" src="@/assets/style.scss"></style>
 <style lang="scss">
 html, body {
   height: 100%;

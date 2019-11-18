@@ -1,0 +1,339 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Color system
+
+$white:    #fff !default;
+$gray-50:  #f9f9f9 !default;
+$gray-100: #f4f4f4 !default;
+$gray-200: #ececec !default;
+$gray-300: #dddddd !default;
+$gray-400: #bababa !default;
+$gray-500: #9a9a9a !default;
+$gray-600: #727272 !default;
+$gray-700: #5e5e5e !default;
+$gray-800: #3f3f3f !default;
+$gray-900: #1e1e1e !default;
+$black:    #000 !default;
+
+$grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+  (
+    "50":  $gray-50,
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+$blue900: #1d3ca7 !default;
+$blue800: #1e5bc6 !default;
+$blue700: #1e6dc8 !default;
+$blue600: #1274de !default;
+$blue500: #158dfb !default;
+$blue400: #399dfd !default;
+$blue300: #5eaefd !default;
+$blue200: #8dc5fe !default;
+$blue100: #badbfe !default;
+$blue50:  #e2f1fe !default;
+
+$red:     #b00020 !default;
+$yellow:  #d7b600 !default;
+$green:   #096100 !default;
+
+$teal:    #00cca9 !default;
+
+$colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+  (
+    "blue":       $blue800,
+    "red":        $red,
+    "yellow":     $yellow,
+    "green":      $green,
+    "teal":       $teal,
+    "white":      $white,
+    "gray":       $gray-600,
+    "gray-dark":  $gray-800
+  ),
+  $colors
+);
+
+$primary:       $blue800 !default;
+$secondary:     $teal !default;
+$success:       $green !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-shadows:                              false !default;
+$enable-transitions:                          true !default;
+$enable-prefers-reduced-motion-media-query:   true !default;
+$enable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
+$enable-grid-classes:                         true !default;
+$enable-pointer-cursor-for-buttons:           true !default;
+$enable-print-styles:                         true !default;
+$enable-responsive-font-sizes:                false !default;
+$enable-validation-icons:                     true !default;
+
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: .5rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: $spacer,
+    2: ($spacer * 2),
+    3: ($spacer * 3),
+    4: ($spacer * 4),
+    5: ($spacer * 5),
+    6: ($spacer * 6),
+    7: ($spacer * 7),
+    8: ($spacer * 8)
+  ),
+  $spacers
+);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge(
+  (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+    auto: auto
+  ),
+  $sizes
+);
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                   $white !default;
+$body-color:                $gray-900 !default;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              theme-color("primary") !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        $blue600 !default;
+$link-hover-decoration:                   underline !default;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15% !default;
+
+// Paragraphs
+//
+// Style p element.
+
+$paragraph-margin-bottom:   spacers(1) !default;
+
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+$screen-size-max:           map-get($grid-breakpoints, "md") !default;
+$screen-size-base:          320px;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:                12 !default;
+$grid-gutter-width:           24px;
+@mixin set-gutter($gutter) {
+  $grid-gutter-width:         $gutter;
+}
+@media screen and (max-width: 767px) {
+  @include set-gutter(16px);
+}
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$line-height-lg:              1.15 !default;
+
+$border-width:                1px !default;
+$border-color:                $gray-300 !default;
+
+$border-radius:               .25rem !default;
+$rounded-pill:                50rem !default;
+
+$box-shadow-10:               0 1px 3px 0 rgba($black, .2) !default;
+$box-shadow-20:               0 1px 8px 0 rgba($black, .2) !default;
+$box-shadow-30:               0 1px 18px 0 rgba($black, .12) !default;
+$box-shadow-40:               0 9px 12px 1px rgba($black, .14) !default;
+$box-shadow-50:               0 24px 38px 3px rgba($black, .14) !default;
+
+// Transitions
+// durations
+$trans-durations: (
+  simple: 100ms,
+  complex: 200ms,
+  persistent: 500ms,
+  small: 100ms,
+  medium: 250ms,
+  big: 300ms
+) !default;
+$trans-durations-back: (
+  simple: 75ms,
+  complex: 150ms,
+  persistent: 450ms,
+  small: 75ms,
+  medium: 200ms,
+  big: 250ms
+) !default;
+// easing
+$trans-easings: (
+  standard:     cubic-bezier(0.4, 0.0, 0.2, 1),
+  decelerated:  cubic-bezier(0.0, 0.0, 0.2, 1),
+  accelerated:  cubic-bezier(0.4, 0.0, 1, 1)
+) !default;
+
+$embed-responsive-aspect-ratios: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$embed-responsive-aspect-ratios: join(
+  (
+    (21 9),
+    (16 9),
+    (4 3),
+    (1 1),
+  ),
+  $embed-responsive-aspect-ratios
+);
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval:      8% !default;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      'SSP', sans-serif !default;
+$font-family-base:            $font-family-sans-serif !default;
+// stylelint-enable value-keyword-case
+
+$font-size-base:              16px !default; // Assumes the browser default, typically `16px`
+$font-size-lg:                $font-size-base * 1.125 !default;
+$font-size-sm:                $font-size-base * .875 !default;
+
+$font-weight-normal:          400 !default;
+$font-weight-bolder:          bolder !default;
+
+$font-weight-base:            $font-weight-normal !default;
+$line-height-base:            1.25 !default;
+
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.125 !default;
+$h6-font-size:                $font-size-base !default;
+
+$headings-margin-bottom:      $spacer / 2 !default;
+$headings-line-height:        1.2 !default;
+
+$small-font-size:             80% !default;
+
+$text-muted:                  $gray-500 !default;
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+$zindex-dropdown:                   1000 !default;
+$zindex-sticky:                     1020 !default;
+$zindex-fixed:                      1030 !default;
+$zindex-modal-backdrop:             1040 !default;
+$zindex-modal:                      1050 !default;
+$zindex-popover:                    1060 !default;
+$zindex-tooltip:                    1070 !default;
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval:      8% !default;
+
+// Utilities
+
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
+$overflows: auto, hidden !default;
+$positions: static, relative, absolute, fixed, sticky !default;
+
+
+// Printing
+
+$print-page-size:                   a3 !default;
+$print-body-min-width:              map-get($grid-breakpoints, "lg") !default;

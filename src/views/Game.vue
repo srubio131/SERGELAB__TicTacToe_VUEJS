@@ -39,7 +39,7 @@ export default {
     margin-bottom: 10px;
   }
   &__dashboard {
-    height: 85%
+    // height: 85%
   }
 }
 </style>
