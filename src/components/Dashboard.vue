@@ -68,6 +68,24 @@ export default {
     },
     isGameFinished() {
       return !this.state.join().split(',').includes('')
+    },
+    isPlayerWinner(x, y, symbol) {
+      if (x === -1 || y === -1 || this.state[x][y] === '') {
+        return false
+      } else if (this.state[x][y] === symbol) {
+        return true
+      } else {
+        return (
+          this.isPlayerWinner(x, y - 1, symbol) ||
+          this.isPlayerWinner(x, y + 1, symbol) ||
+          this.isPlayerWinner(x - 1, y, symbol) ||
+          this.isPlayerWinner(x + 1, y, symbol) ||
+          this.isPlayerWinner(x - 1, y - 1, symbol) ||
+          this.isPlayerWinner(x - 1, y + 1, symbol) ||
+          this.isPlayerWinner(x + 1, y - 1, symbol) ||
+          this.isPlayerWinner(x + 1, y + 1, symbol)
+        )
+      }
     }
   }
 }

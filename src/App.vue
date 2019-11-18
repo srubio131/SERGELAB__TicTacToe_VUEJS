@@ -13,6 +13,7 @@
 <style lang="scss" src="@/assets/style.scss"></style>
 <style lang="scss">
 html, body {
+  font-family: 'Lato', sans-serif;
   height: 100%;
 }
 #app {

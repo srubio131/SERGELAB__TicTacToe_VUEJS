@@ -1,6 +1,9 @@
 <template>
   <div class="game">
-    <div>Le toca a: {{ currentPlayer }}</div>
+    <div class="game__turn">
+      <div>Es el turno de</div>
+      <div>{{ currentPlayer }}</div>
+    </div>
     <t-dashboard class="game__dashboard"
                  @currentPlayer="onCurrentPlayer"
                  @finish="onFinish"></t-dashboard>
@@ -35,11 +38,18 @@ export default {
 
 <style lang="scss" scoped>
 .game {
-  &div:first-child {
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  >:not(:last-child) {
+    margin-bottom: 20px;
   }
-  &__dashboard {
-    // height: 85%
+
+  &__turn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 </style>

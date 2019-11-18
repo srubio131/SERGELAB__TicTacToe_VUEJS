@@ -1,6 +1,16 @@
 // Styles
 @import './styles/mixins';
-// @import './styles/variables';
 
 // Fonts
 @import './fonts/fonts';
+
+// General
+$sides: (
+    'top',
+    'right',
+    'bottom',
+    'left'
+);
+@each $side in $sides {
+    @include border-none($side)
+}

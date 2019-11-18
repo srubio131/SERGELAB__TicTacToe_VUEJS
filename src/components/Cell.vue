@@ -68,17 +68,4 @@ export default {
   justify-content: center;
   font-size: 30px;
 }
-
-.border-top-none {
-  border-top: none;
-}
-.border-right-none {
-  border-right: none;
-}
-.border-bottom-none {
-  border-bottom: none;
-}
-.border-left-none {
-  border-left: none;
-}
 </style>
