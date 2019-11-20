@@ -2,7 +2,7 @@
   <div class="dashboard">
     <div class="dashboard__row"
          v-for="row in rows" :key="row">
-      <t-cell v-for="column in rows" :key="column"
+      <t-cell v-for="column in rows" :key="`${row}-${column}`"
             :coords="[row - 1, column - 1]"
             :maxCell="rows - 1"
             :content="state[row - 1][column - 1]"
@@ -15,6 +15,7 @@
 <script>
 import Vue from 'vue'
 import TCell from '@/components/Cell'
+import { TicTacToe } from '@/api/tic-tac-toe'
 
 export default {
   name: "TDashboard",
@@ -31,61 +32,43 @@ export default {
   data() {
     return {
       players: ['X', 'O'],
-      state: [['', '', ''],
-              ['', '', ''],
-              ['', '', '']],
-      currentIndexPlayer: 0
+      state: null,
+      currentIndexPlayer: 0,
+      isGameFinished: false
     }
   },
-  mounted() {
+  beforeMount() {
     this.$emit('currentPlayer', this.players[0])
+    TicTacToe.initialize(this.rows, this.players)
+    this.state = TicTacToe.getState()
   },
   methods: {
     onCellClick(event) {
       const x = event.coords[0]
       const y = event.coords[1]
+      const currentPlayer = this.players[this.currentIndexPlayer]
 
-      if (this.state[x][y] === '') {
-        const currentPlayer = this.players[this.currentIndexPlayer]
-        Vue.set(this.state[x], y, currentPlayer)
-      }
+      if (this.state[x][y] === '' && !this.isGameFinished) {
+        TicTacToe.makeMove(x, y, currentPlayer)
+        this.state = TicTacToe.getState()
 
-      // Juego terminado?
-      if (this.isGameFinished()) {
-        this.$emit('finish', this.players[this.currentIndexPlayer])
-      } else {
-        this.$emit('currentPlayer', this.getNextPlayer())
+        // Juego terminado?
+        this.isGameFinished = TicTacToe.isGameFinished(currentPlayer)
+        if (this.isGameFinished) {
+          this.$emit('finish', this.isGameFinished)
+        } else {
+          this.$emit('currentPlayer', this.getNextPlayer())
+        }
       }
     },
     getNextPlayer() {
-      // First time
-      if (this.currentIndexPlayer + 1 < this.players.length) {
-        this.currentIndexPlayer += 1
-      } else {
-        this.currentIndexPlayer = 0
-      }
-      return this.players[this.currentIndexPlayer]
-    },
-    isGameFinished() {
-      return !this.state.join().split(',').includes('')
-    },
-    isPlayerWinner(x, y, symbol) {
-      if (x === -1 || y === -1 || this.state[x][y] === '') {
-        return false
-      } else if (this.state[x][y] === symbol) {
-        return true
-      } else {
-        return (
-          this.isPlayerWinner(x, y - 1, symbol) ||
-          this.isPlayerWinner(x, y + 1, symbol) ||
-          this.isPlayerWinner(x - 1, y, symbol) ||
-          this.isPlayerWinner(x + 1, y, symbol) ||
-          this.isPlayerWinner(x - 1, y - 1, symbol) ||
-          this.isPlayerWinner(x - 1, y + 1, symbol) ||
-          this.isPlayerWinner(x + 1, y - 1, symbol) ||
-          this.isPlayerWinner(x + 1, y + 1, symbol)
-        )
-      }
+        // First time
+        if (this.currentIndexPlayer + 1 < this.players.length) {
+          this.currentIndexPlayer += 1
+        } else {
+          this.currentIndexPlayer = 0
+        }
+        return this.players[this.currentIndexPlayer]
     }
   }
 }
@@ -93,9 +76,8 @@ export default {
 
 <style lang="scss" scoped>
 .dashboard {
-  display: flex;
   &__row {
-    //display: flex;
+    display: flex;
   }
 }
 </style>

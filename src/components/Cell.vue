@@ -35,19 +35,20 @@ export default {
       const x = this.coords[0]
       const y = this.coords[1]
       if (x === 0) {
-        this.classes += ' border-left-none'
-      }
-      if (x === this.maxCell) {
-        this.classes += ' border-right-none'
-      }
-      if (y === 0) {
         this.classes += ' border-top-none'
       }
-      if (y === this.maxCell) {
+      if (x === this.maxCell) {
         this.classes += ' border-bottom-none'
+      }
+      if (y === 0) {
+        this.classes += ' border-left-none'
+      }
+      if (y === this.maxCell) {
+        this.classes += ' border-right-none'
       }
     },
     onCellClick() {
+      console.log('coords: ',this.coords[0], this.coords[1])
       const data = {
         coords: this.coords,
         value: this.content
