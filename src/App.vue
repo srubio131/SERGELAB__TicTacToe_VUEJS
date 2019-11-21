@@ -1,13 +1,27 @@
 <template>
   <div id="app">
-    <header>
-      <span class="title">Tic Tac Toe</span>
-    </header>
+    <v-app-bar absolute>
+      <v-btn icon @click.prevent="onBackClick">
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-btn>
+      <v-toolbar-title >Tic Tac Toe</v-toolbar-title>
+    </v-app-bar>
     <main>
       <router-view/>
     </main>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'TApp',
+  methods: {
+    onBackClick() {
+      this.$router.go(-1)
+    }
+  }
+}
+</script>
 
 <!-- Global styles -->
 <style lang="scss" src="@/assets/style.scss"></style>
@@ -28,12 +42,6 @@ body.no-scroll {
   overflow: hidden;
   width: 100%;
   position: fixed;
-}
-header {
-  padding: 0 16px;
-  &.title {
-    width: 52%;
-  }
 }
 
 @media (min-width: 767px) {

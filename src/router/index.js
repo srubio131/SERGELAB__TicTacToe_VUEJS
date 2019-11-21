@@ -9,16 +9,21 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: Game
+    component: Home
   },
   {
     path: "/game",
     name: "game",
     component: Game
+  },
+  {
+    path: "*",
+    component: Home
   }
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 });
 

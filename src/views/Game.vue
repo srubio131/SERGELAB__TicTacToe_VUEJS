@@ -25,6 +25,10 @@ export default {
       winPlayer: ''
     }
   },
+  beforeMount() {
+    const { type } = this.$route.params
+    console.log('Nuevo juego de tipo: ', type)
+  },
   methods: {
     onCurrentPlayer(currentPlayer) {
       this.currentPlayer = currentPlayer
