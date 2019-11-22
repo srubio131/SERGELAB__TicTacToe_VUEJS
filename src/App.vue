@@ -28,14 +28,19 @@ export default {
 <style lang="scss">
 html, body {
   font-family: 'Lato', sans-serif;
-  height: 100%;
 }
 #app {
   width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: flex-start; /* align items in Main Axis */
+  align-items: stretch; /* align items in Cross Axis */
+  align-content: stretch; /* Extra space in Cross Axis */
 }
 main {
-  display: flex;
-  justify-content: center;
   padding-top: 60px;
 }
 body.no-scroll {

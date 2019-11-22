@@ -1,9 +1,12 @@
 module.exports = {
-  publicPath: './',
-  assetsDir: 'assets',
-  lintOnSave: false,
-  configureWebpack: {
-    devtool: 'eval-source-map'
+  "publicPath": "./",
+  "assetsDir": "assets",
+  "lintOnSave": false,
+  "configureWebpack": {
+    "devtool": "eval-source-map"
   },
-  productionSourceMap: false
+  "productionSourceMap": false,
+  "transpileDependencies": [
+    "vuetify"
+  ]
 }
