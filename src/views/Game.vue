@@ -8,6 +8,23 @@
                  @currentPlayer="onCurrentPlayer"
                  @finish="onFinish"></t-dashboard>
     <div v-if="winPlayer">El ganador es: {{ winPlayer }}</div>
+
+    <!-- Dialog for show winner -->
+    <v-dialog v-model="showWinnerDialog" persistent>
+      <v-card>
+        <v-card-title class="headline">
+          El ganador es:
+        </v-card-title>
+        <v-card-text>
+          {{ winPlayer }}
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" text @click="onCancelDialogClick">Cancel</v-btn>
+          <v-btn color="blue darken-1" text @click="onAcceptDialogClick">Accept</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -22,7 +39,8 @@ export default {
   data() {
     return {
       currentPlayer: '',
-      winPlayer: ''
+      winPlayer: '',
+      showWinnerDialog: false
     }
   },
   beforeMount() {
@@ -34,7 +52,14 @@ export default {
       this.currentPlayer = currentPlayer
     },
     onFinish(winner) {
+      this.showWinnerDialog = true
       this.winPlayer = winner
+    },
+    onCancelDialogClick() {
+      this.showWinnerDialog = false
+    },
+    onAcceptDialogClick() {
+      this.showWinnerDialog = false
     }
   }
 };

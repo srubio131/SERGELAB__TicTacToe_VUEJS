@@ -1,16 +1,18 @@
 <template>
-  <div class="home">
-    <section class="home__actions">
+  <v-container class="home">
+    <v-row align="center">
       <v-btn color="primary" block dark
              @click.prevent="onhandleActions('one')">
           Un jugador
       </v-btn>
+    </v-row>
+    <v-row align="center">
       <v-btn color="primary" block dark
              @click.prevent="onhandleActions('two')">
           Dos jugadores
       </v-btn>
-    </section>
-  </div>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
