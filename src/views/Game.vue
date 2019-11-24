@@ -6,22 +6,24 @@
     </div>
     <t-dashboard class="game__dashboard"
                  @currentPlayer="onCurrentPlayer"
-                 @finish="onFinish"></t-dashboard>
-    <div v-if="winPlayer">El ganador es: {{ winPlayer }}</div>
+                 @finish="onFinish">
+    </t-dashboard>
 
     <!-- Dialog for show winner -->
     <v-dialog v-model="showWinnerDialog" persistent>
-      <v-card>
-        <v-card-title class="headline">
-          El ganador es:
-        </v-card-title>
-        <v-card-text>
+      <v-card class="d-flex flex-column align-center">
+        <v-avatar size="75">
+          <v-img alt="Winner medal"
+                 src="@/assets/img/winner_medal.svg">
+          </v-img>
+        </v-avatar>
+        <v-card-text class="text--primary center">
           {{ winPlayer }}
         </v-card-text>
-        <v-card-actions>
+        <v-card-actions class="d-flex flex-row align-end">
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="onCancelDialogClick">Cancel</v-btn>
-          <v-btn color="blue darken-1" text @click="onAcceptDialogClick">Accept</v-btn>
+          <v-btn color="blue darken-1" text @click="onCancelDialogClick">Salir</v-btn>
+          <v-btn color="blue darken-1" text @click="onAcceptDialogClick">Nuevo juego</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -40,7 +42,7 @@ export default {
     return {
       currentPlayer: '',
       winPlayer: '',
-      showWinnerDialog: false
+      showWinnerDialog: true
     }
   },
   beforeMount() {

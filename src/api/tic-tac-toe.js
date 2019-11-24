@@ -64,24 +64,22 @@ export const TicTacToe = (() => {
         return [..._dashboard] 
     }
 
-    const IAEasy = function() {
-        var huecoEncontrado = false;
-        while (huecoEncontrado == false) {
-            var frandom = Math.floor((Math.random() * _maxRows)); // Número random de 0 a 2
-            var crandom = Math.floor((Math.random() * _maxRows)); // Número random de 0 a 2
-            if (_dashboard[frandom][crandom] !== "X" && _dashboard[frandom][crandom] !== "O") {
-                var td = tdByPosition(frandom,crandom)
-                $(td).html('O');
-                _dashboard[frandom][crandom] = 'O';
-                _turno += 1;
-                huecoEncontrado = true;
+    const makeMoveIAEasy = function(player) {
+        const spaceFinded = false;
+        while (!spaceFinded) {
+            var frandom = Math.floor((Math.random() * _maxRows))
+            var crandom = Math.floor((Math.random() * _maxRows))
+            if (_dashboard[frandom][crandom] === '') {
+                _dashboard[frandom][crandom] = player;
+                spaceFinded = true;
             }
         }
-    };
+    }
 
     return {
         initialize: (maxRows, players) => { initialize(maxRows, players) },
         makeMove: (x, y, player) => { makeMove(x, y, player) },
+        makeMoveIAEasy: (player) => { makeMoveIAEasy(player) },
         getState,
         isGameFinished: (player) => { return isGameFinished(player) }
     }
