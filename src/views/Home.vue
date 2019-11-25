@@ -1,13 +1,13 @@
 <template>
   <v-container class="home">
     <v-row align="center">
-      <v-btn color="primary" block dark
+      <v-btn color="primary" block
              @click.prevent="onhandleActions('one')">
           Un jugador
       </v-btn>
     </v-row>
     <v-row align="center">
-      <v-btn color="primary" block dark
+      <v-btn color="primary" block
              @click.prevent="onhandleActions('two')">
           Dos jugadores
       </v-btn>
@@ -21,7 +21,7 @@ export default {
   name: "Home",
   methods: {
     onhandleActions(type) {
-      this.$router.push({ name: 'game', params: { type }})
+      this.$router.push({ name: 'game-container', params: { type }})
     }
   }
 };

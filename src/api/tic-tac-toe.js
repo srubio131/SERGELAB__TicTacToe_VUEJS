@@ -65,7 +65,7 @@ export const TicTacToe = (() => {
     }
 
     const makeMoveIAEasy = function(player) {
-        const spaceFinded = false;
+        let spaceFinded = false;
         while (!spaceFinded) {
             var frandom = Math.floor((Math.random() * _maxRows))
             var crandom = Math.floor((Math.random() * _maxRows))

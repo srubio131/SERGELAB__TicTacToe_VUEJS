@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Game from "../views/Game.vue";
+import THome from "@/views/Home.vue";
+import TGame from "@/views/Game.vue";
+import TGameContainer from "@/containers/GameContainer.vue";
 
 Vue.use(VueRouter);
 
@@ -9,22 +10,27 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: Home
+    component: THome
   },
   {
     path: "/game",
     name: "game",
-    component: Game
+    component: TGame
+  },
+  {
+    path: "/game-container",
+    name: "game-container",
+    component: TGameContainer
   },
   {
     path: "*",
-    component: Home
+    component: THome
   }
-];
+]
 
 const router = new VueRouter({
   mode: 'history',
   routes
-});
+})
 
 export default router;

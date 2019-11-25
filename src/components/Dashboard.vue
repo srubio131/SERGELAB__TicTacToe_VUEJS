@@ -27,6 +27,11 @@ export default {
       type: Number,
       default: 3,
       required: false
+    },
+    difficult: {
+      type: String,
+      default: undefined,
+      required: false
     }
   },
   data() {
@@ -38,6 +43,7 @@ export default {
     }
   },
   beforeMount() {
+    console.log('tipo: ', this.difficult)
     this.$emit('currentPlayer', this.players[0])
     TicTacToe.initialize(this.rows, this.players)
     this.state = TicTacToe.getState()
@@ -57,7 +63,13 @@ export default {
         if (this.isGameFinished) {
           this.$emit('finish', this.isGameFinished)
         } else {
-          this.$emit('currentPlayer', this.getNextPlayer())
+          if (this.difficult) {
+            if (this.difficult === 'easy') {
+              TicTacToe.makeMoveIAEasy(this.getNextPlayer())
+            }
+          } else {
+            this.$emit('currentPlayer', this.getNextPlayer())
+          }
         }
       }
     },
