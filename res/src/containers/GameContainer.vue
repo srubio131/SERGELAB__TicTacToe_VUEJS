@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <div v-if="config.type === 'one'">
-      <v-container class="d-flex flex-column justify-center align-center">
-        <v-btn color="primary" block
-              @click.prevent="onhandleActions('easy')">
-            {{ $t('BUTTONS.EASY') }}
-        </v-btn>
-        <v-btn color="primary" block disabled
-              @click.prevent="onhandleActions('hard')">
-            {{ $t('BUTTONS.HARD') }}
-        </v-btn>
-      </v-container>
-    </div>
+  <div class="gamecontainer">
+    <v-container v-if="config.type === 'one'">
+      <v-btn color="primary" block
+            @click.prevent="onhandleActions('easy')">
+          {{ $t('BUTTONS.EASY') }}
+      </v-btn>
+      <v-btn color="primary" block disabled
+            @click.prevent="onhandleActions('hard')">
+          {{ $t('BUTTONS.HARD') }}
+      </v-btn>
+    </v-container>
     <router-view></router-view>
   </div>
 </template>
@@ -46,3 +44,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.gamecontainer {
+  display: flex;
+  width: 100%;
+
+  :not(:first-child) {
+    margin-top: 25px;
+  }
+}
+</style>

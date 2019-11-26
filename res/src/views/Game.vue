@@ -93,6 +93,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   >:not(:last-child) {
     margin-bottom: 20px;

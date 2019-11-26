@@ -66,9 +66,8 @@ export default {
             if (this.difficult === 'easy') {
               TicTacToe.makeMoveIAEasy(this.getNextPlayer())
             }
-          } else {
-            this.$emit('currentPlayer', this.getNextPlayer())
           }
+          this.$emit('currentPlayer', this.getNextPlayer())
         }
       }
     },

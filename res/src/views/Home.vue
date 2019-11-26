@@ -1,12 +1,12 @@
 <template>
   <v-container class="home">
-    <v-row align="center">
+    <v-row>
       <v-btn color="primary" block
              @click.prevent="onhandleActions('one')">
           {{ $t('BUTTONS.ONE_PLAYER') }}
       </v-btn>
     </v-row>
-    <v-row align="center">
+    <v-row>
       <v-btn color="primary" block
              @click.prevent="onhandleActions('two')">
           {{ $t('BUTTONS.TWO_PLAYERS') }}
@@ -29,13 +29,10 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  padding: 30px;
+  padding: 0 30px;
 
-  &__actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
+  :not(:first-child) {
+    margin-top: 25px;
   }
 }
 </style>

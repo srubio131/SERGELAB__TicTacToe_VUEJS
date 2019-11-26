@@ -1,11 +1,13 @@
 <template>
   <v-app>
-    <v-app-bar absolute>
+    <v-app-bar>
       <v-btn v-if="this.$router.currentRoute.path !== '/'"
              icon @click.prevent="onBackClick">
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
       <v-toolbar-title> {{ $t('TITLE') }}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <t-lang-selector></t-lang-selector>
     </v-app-bar>
     <main>
       <router-view/>
@@ -14,8 +16,13 @@
 </template>
 
 <script>
+import TLangSelector from '@/components/LangSelector'
+
 export default {
   name: 'TApp',
+  components: {
+    TLangSelector
+  },
   methods: {
     onBackClick() {
       if (this.$router.currentRoute.path === '/game') {
@@ -35,7 +42,9 @@ html, body {
   font-family: 'Lato', sans-serif;
 }
 main {
-  padding-top: 60px;
+  height: 100%;
+  display: flex !important;
+  align-items: center;
 }
 body.no-scroll {
   overflow: hidden;
