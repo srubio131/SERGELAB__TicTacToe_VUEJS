@@ -1,21 +1,17 @@
-.DS_Store
-node_modules
-/dist
+# Created by https://www.gitignore.io/api/apachecordova
+# Edit at https://www.gitignore.io/?templates=apachecordova
 
-# local env files
-.env.local
-.env.*.local
+### ApacheCordova ###
 
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/node_modules
+/www
 
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Apache Cordova generated files and directories
+bin/*
+!/plugins
+!/plugins/android.json
+!/plugins/fetch.json
+plugins/*
+platforms/*
+
+# End of https://www.gitignore.io/api/apachecordova
