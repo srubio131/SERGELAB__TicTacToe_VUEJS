@@ -9,7 +9,8 @@
         "initialize": "cd res && npm install && npm run build:dev && cd .. && npm install && cordova prepare",
         "emulate:browser": "cd res && npm run build:dev && cordova run browser",
         "emulate:android": "cd res && npm run build:dev && cordova run android",
-        "emulate:device": "cd res && npm run build:dev && cordova run android --device"
+        "emulate:device": "cd res && npm run build:dev && cordova run android --device",
+        "build:android:prod": "cordova build android --release --device"
     },
     "keywords": [
         "ecosystem:cordova"

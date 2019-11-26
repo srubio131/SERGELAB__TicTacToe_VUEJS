@@ -5,7 +5,7 @@
              icon @click.prevent="onBackClick">
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
-      <v-toolbar-title>Tic Tac Toe</v-toolbar-title>
+      <v-toolbar-title> {{ $t('TITLE') }}</v-toolbar-title>
     </v-app-bar>
     <main>
       <router-view/>

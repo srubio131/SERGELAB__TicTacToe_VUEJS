@@ -3,13 +3,13 @@
     <v-row align="center">
       <v-btn color="primary" block
              @click.prevent="onhandleActions('one')">
-          Un jugador
+          {{ $t('BUTTONS.ONE_PLAYER') }}
       </v-btn>
     </v-row>
     <v-row align="center">
       <v-btn color="primary" block
              @click.prevent="onhandleActions('two')">
-          Dos jugadores
+          {{ $t('BUTTONS.TWO_PLAYERS') }}
       </v-btn>
     </v-row>
   </v-container>

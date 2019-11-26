@@ -1,0 +1,14 @@
+{
+  "TITLE": "Tic Tac Toe",
+  "BUTTONS": {
+    "ONE_PLAYER": "One Player",
+    "TWO_PLAYERS": "Two Players",
+    "EASY": "Easy",
+    "HARD": "Hard"
+  },
+  "LABELS": {
+    "TURN": "Turn of",
+    "DRAW": "There was a draw!",
+    "WINNER": "The winner is"
+  }
+}

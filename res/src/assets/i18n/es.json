@@ -1,0 +1,14 @@
+{
+  "TITLE": "Tres en Raya",
+  "BUTTONS": {
+    "ONE_PLAYER": "Un Jugador",
+    "TWO_PLAYERS": "Dos Jugadores",
+    "EASY": "Fácil",
+    "HARD": "Difícil"
+  },
+  "LABELS": {
+    "TURN": "Turno de",
+    "DRAW": "¡Ha habido empate!",
+    "WINNER": "Ha ganado"
+  }
+}

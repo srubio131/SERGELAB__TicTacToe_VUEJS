@@ -43,7 +43,6 @@ export default {
     }
   },
   beforeMount() {
-    console.log('tipo: ', this.difficult)
     this.$emit('currentPlayer', this.players[0])
     TicTacToe.initialize(this.rows, this.players)
     this.state = TicTacToe.getState()

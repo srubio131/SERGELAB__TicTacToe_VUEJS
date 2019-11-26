@@ -4,11 +4,11 @@
       <v-container class="d-flex flex-column justify-center align-center">
         <v-btn color="primary" block
               @click.prevent="onhandleActions('easy')">
-            Fácil
+            {{ $t('BUTTONS.EASY') }}
         </v-btn>
         <v-btn color="primary" block disabled
               @click.prevent="onhandleActions('hard')">
-            Díficil
+            {{ $t('BUTTONS.HARD') }}
         </v-btn>
       </v-container>
     </div>

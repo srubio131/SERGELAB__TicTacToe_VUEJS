@@ -1,7 +1,8 @@
 <template>
   <div class="game">
-    <div class="game__turn">
-      <div>Turno de</div>
+    <div class="game__turn"
+         v-if="config.type !== 'one'">
+      <div>{{ $t('LABELS.TURN') }}</div>
       <div>{{ currentPlayer }}</div>
     </div>
     <t-dashboard class="game__dashboard"
@@ -56,9 +57,9 @@ export default {
     showWinner() {
       let winner = ''
       if (this.winPlayer === 'empate') {
-        winner = '¡Ha habido empate!'
+        winner = this.$t('LABELS.DRAW')
       } else {
-        winner = `¡Ha ganado ${this.winPlayer}!`
+        winner = `¡${this.$t('LABELS.WINNER')} ${this.winPlayer}!`
       }
       return winner
     }

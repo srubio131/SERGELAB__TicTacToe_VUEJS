@@ -48,7 +48,6 @@ export default {
       }
     },
     onCellClick() {
-      console.log('coords: ',this.coords[0], this.coords[1])
       const data = {
         coords: this.coords,
         value: this.content
