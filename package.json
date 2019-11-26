@@ -10,7 +10,7 @@
         "emulate:browser": "cd res && npm run build:dev && cordova run browser",
         "emulate:android": "cd res && npm run build:dev && cordova run android",
         "emulate:device": "cd res && npm run build:dev && cordova run android --device",
-        "build:android:prod": "cordova build android --release --device"
+        "build:android:prod": "cd res && npm run build:prod && cordova build android"
     },
     "keywords": [
         "ecosystem:cordova"
