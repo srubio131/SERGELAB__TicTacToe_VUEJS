@@ -40,6 +40,7 @@ export default {
 <style lang="scss">
 html, body {
   font-family: 'Lato', sans-serif;
+  user-select: none;
 }
 main {
   height: 100%;

@@ -2,6 +2,7 @@
   <div class="langselector">
     <v-select :items="langs"
               item-value="code"
+              :hide-details=true
               v-model="$i18n.locale">
       <template v-slot:selection="{ item, index }">
         <v-avatar size="20">

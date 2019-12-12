@@ -18,7 +18,7 @@
         <v-card-title class="game__dialog--title" color="skyblue">
           <v-avatar size="90">
             <v-img alt="Winner medal"
-                  src="@/assets/img/winner_medal.svg">
+                   src="@/assets/img/winner_medal.png">
             </v-img>
           </v-avatar>
         </v-card-title>
@@ -29,7 +29,7 @@
         </v-card-text>
         <v-card-actions class="d-flex flex-row justify-end">
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="onAcceptDialogClick">Nuevo juego</v-btn>
+          <v-btn color="blue darken-1" tile outlined @click="onAcceptDialogClick">Nuevo juego</v-btn>
           <v-btn color="blue darken-1" text @click="onCancelDialogClick">Salir</v-btn>
         </v-card-actions>
       </v-card>
